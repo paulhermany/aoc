@@ -1,5 +1,7 @@
 ﻿using Hermany.AoC.Common;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 
 namespace Hermany.AoC.Day01
 {
