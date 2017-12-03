@@ -15,7 +15,7 @@ namespace Hermany.AoC
     {
         public static void Main(string[] args)
         {
-            var day = new Day02.Day02();
+            var day = new Day03.Day03();
 
             var dayName = day.GetType().Name;
 
