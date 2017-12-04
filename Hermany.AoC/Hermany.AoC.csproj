@@ -43,10 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\LinqExtensions.cs" />
-    <Compile Include="Day03\Day03.cs" />
-    <Compile Include="Day02\Day02.cs" />
-    <Compile Include="Day01\Day01.cs" />
-    <Compile Include="Day04\Day04.cs" />
+    <Compile Include="2017\03\Solution.cs" />
+    <Compile Include="2017\02\Solution.cs" />
+    <Compile Include="2017\01\Solution.cs" />
+    <Compile Include="2017\04\Solution.cs" />
+    <Compile Include="ISolution.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -54,16 +55,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Day03\input.txt">
+    <Content Include="2017\03\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Day02\input.txt">
+    <Content Include="2017\02\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Day01\input.txt">
+    <Content Include="2017\01\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Day04\input.txt">
+    <Content Include="2017\04\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

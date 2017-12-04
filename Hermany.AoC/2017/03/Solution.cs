@@ -1,16 +1,11 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
-using Hermany.AoC.Common;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text.RegularExpressions;
 
-namespace Hermany.AoC.Day03
+namespace Hermany.AoC._2017._03
 {
-    public class Day03
+    public class Solution : ISolution
     {
-        public string Part1(string[] input)
+        public string Part1(params string[] input)
         {
             var index = int.Parse(input[0]);
 
@@ -38,7 +33,7 @@ namespace Hermany.AoC.Day03
             return (Math.Abs(x) + Math.Abs(y)).ToString();
         }
 
-        public string Part2(string[] input)
+        public string Part2(params string[] input)
         {
             var index = int.Parse(input[0]);
 

@@ -1,21 +1,16 @@
-﻿using System;
-using System.CodeDom;
-using Hermany.AoC.Common;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text.RegularExpressions;
+﻿using System.Linq;
 
-namespace Hermany.AoC.Day02
+namespace Hermany.AoC._2017._02
 {
-    public class Day02
+    public class Solution : ISolution
     {
-        public string Part1(string[] input)
+        public string Part1(params string[] input)
         {
             var sum = input.Select(line => line.Split('\t').Select(_ => int.Parse(_.Trim())).ToArray()).Select(arr => arr.Max() - arr.Min()).Sum();
             return sum.ToString();
         }
 
-        public string Part2(string[] input)
+        public string Part2(params string[] input)
         {
             var sum = 0;
             foreach (var line in input)
