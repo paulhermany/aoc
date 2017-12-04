@@ -26,11 +26,8 @@ namespace Hermany.AoC._2016._01
             {
                 rotation += vector.Rotation;
 
-                for (var d = 1; d <= vector.Distance; d++)
-                {
-                    x += (int)Math.Round(Math.Cos(rotation));
-                    y += (int)Math.Round(Math.Sin(rotation));
-                }
+                x += vector.Distance * (int)Math.Round(Math.Cos(rotation));
+                y += vector.Distance * (int)Math.Round(Math.Sin(rotation));
             }
 
             return (Math.Abs(x) + Math.Abs(y)).ToString();
