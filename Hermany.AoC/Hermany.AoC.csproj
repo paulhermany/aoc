@@ -42,6 +42,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2016\02\Keypad.cs" />
+    <Compile Include="2016\02\Node.cs" />
+    <Compile Include="2016\21\Solution.cs" />
+    <Compile Include="2016\22\Solution.cs" />
+    <Compile Include="2016\23\Solution.cs" />
+    <Compile Include="2016\24\Solution.cs" />
+    <Compile Include="2016\25\Solution.cs" />
+    <Compile Include="2016\11\Solution.cs" />
+    <Compile Include="2016\12\Solution.cs" />
+    <Compile Include="2016\13\Solution.cs" />
+    <Compile Include="2016\14\Solution.cs" />
+    <Compile Include="2016\15\Solution.cs" />
+    <Compile Include="2016\16\Solution.cs" />
+    <Compile Include="2016\17\Solution.cs" />
+    <Compile Include="2016\18\Solution.cs" />
+    <Compile Include="2016\19\Solution.cs" />
+    <Compile Include="2016\20\Solution.cs" />
+    <Compile Include="2016\10\Solution.cs" />
+    <Compile Include="2016\09\Solution.cs" />
+    <Compile Include="2016\08\Solution.cs" />
+    <Compile Include="2016\07\Solution.cs" />
+    <Compile Include="2016\06\Solution.cs" />
+    <Compile Include="2016\05\Solution.cs" />
+    <Compile Include="2016\04\Solution.cs" />
+    <Compile Include="2016\03\Solution.cs" />
+    <Compile Include="2016\02\Solution.cs" />
+    <Compile Include="2016\01\Solution.cs" />
     <Compile Include="Common\LinqExtensions.cs" />
     <Compile Include="2017\03\Solution.cs" />
     <Compile Include="2017\02\Solution.cs" />
@@ -55,6 +82,81 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="2016\21\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\22\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\23\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\24\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\25\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\11\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\12\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\13\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\14\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\15\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\16\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\17\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\18\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\19\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\20\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\10\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\09\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\08\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\07\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\06\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\05\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\04\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\03\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\02\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016\01\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="2017\03\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
