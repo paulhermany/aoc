@@ -48,6 +48,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2016\06\Test.cs" />
     <Compile Include="2016\05\Test.cs" />
     <Compile Include="2016\04\Test.cs" />
     <Compile Include="2016\03\Test.cs" />
