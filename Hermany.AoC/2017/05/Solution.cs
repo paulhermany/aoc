@@ -7,9 +7,7 @@ namespace Hermany.AoC._2017._05
         public string Part1(params string[] input)
         {
             var instructions = input.Select(int.Parse).ToArray();
-            
             var index = 0;
-
             var steps = 0;
 
             while (index >= 0 && index < instructions.Length)
@@ -27,7 +25,22 @@ namespace Hermany.AoC._2017._05
 
         public string Part2(params string[] input)
         {
-            return string.Empty;
+            var instructions = input.Select(int.Parse).ToArray();
+            var index = 0;
+            var steps = 0;
+
+            while (index >= 0 && index < instructions.Length)
+            {
+                var currentInstruction = instructions[index];
+                
+                index += currentInstruction;
+
+                instructions[index - currentInstruction] += currentInstruction >= 3 ? -1 : 1;
+                
+                steps++;
+            }
+
+            return steps.ToString();
         }
     }
 }
