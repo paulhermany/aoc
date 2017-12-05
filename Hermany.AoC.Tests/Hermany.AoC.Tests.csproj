@@ -57,6 +57,7 @@
     <Compile Include="2016\01\Test.cs" />
     <Compile Include="2017\02\Test.cs" />
     <Compile Include="2017\01\Test.cs" />
+    <Compile Include="2017\05\Test.cs" />
     <Compile Include="2017\04\Test.cs" />
     <Compile Include="2017\03\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
