@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Hermany.AoC.Tests._2016._05
 {
     [TestClass]
+    [Ignore]
     public class Test
     {
         public ISolution CreateSolution() =>
@@ -14,7 +15,7 @@ namespace Hermany.AoC.Tests._2016._05
         public void Part1SampleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual(solution.Part1("aabc"), "18f47a30");
+            Assert.AreEqual(solution.Part1("abc"), "18f47a30");
         }
 
         [TestMethod]
