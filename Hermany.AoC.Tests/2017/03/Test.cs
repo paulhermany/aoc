@@ -14,10 +14,10 @@ namespace Hermany.AoC.Tests._2017._03
         public void Part1SampleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual(solution.Part1("1"), "0");
-            Assert.AreEqual(solution.Part1("12"), "3");
-            Assert.AreEqual(solution.Part1("23"), "2");
-            Assert.AreEqual(solution.Part1("1024"), "31");
+            Assert.AreEqual("0", solution.Part1("1"));
+            Assert.AreEqual("3", solution.Part1("12"));
+            Assert.AreEqual("2", solution.Part1("23"));
+            Assert.AreEqual("31", solution.Part1("1024"));
         }
 
         [TestMethod]
@@ -25,15 +25,15 @@ namespace Hermany.AoC.Tests._2017._03
         {
             var solution = CreateSolution();
             var input = Program.GetPuzzleInput(solution);
-            Assert.AreEqual(solution.Part1(input), "475");
+            Assert.AreEqual("475", solution.Part1(input));
         }
 
         [TestMethod]
         public void Part2SampleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual(solution.Part2("120"), "122");
-            Assert.AreEqual(solution.Part2("360"), "362");
+            Assert.AreEqual("122", solution.Part2("120"));
+            Assert.AreEqual("362", solution.Part2("360"));
         }
 
         [TestMethod]
@@ -41,7 +41,7 @@ namespace Hermany.AoC.Tests._2017._03
         {
             var solution = CreateSolution();
             var input = Program.GetPuzzleInput(solution);
-            Assert.AreEqual(solution.Part2(input), "279138");
+            Assert.AreEqual("279138", solution.Part2(input));
         }
     }
 }

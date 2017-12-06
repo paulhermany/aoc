@@ -14,9 +14,9 @@ namespace Hermany.AoC.Tests._2017._04
         public void Part1SampleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual(solution.Part1("aa bb cc dd ee"), "1");
-            Assert.AreEqual(solution.Part1("aa bb cc dd aa"), "0");
-            Assert.AreEqual(solution.Part1("aa bb cc dd aaa"), "1");
+            Assert.AreEqual("1", solution.Part1("aa bb cc dd ee"));
+            Assert.AreEqual("0", solution.Part1("aa bb cc dd aa"));
+            Assert.AreEqual("1", solution.Part1("aa bb cc dd aaa"));
         }
 
         [TestMethod]
@@ -24,18 +24,18 @@ namespace Hermany.AoC.Tests._2017._04
         {
             var solution = CreateSolution();
             var input = Program.GetPuzzleInput(solution);
-            Assert.AreEqual(solution.Part1(input), "325");
+            Assert.AreEqual("325", solution.Part1(input));
         }
 
         [TestMethod]
         public void Part2SampleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual(solution.Part2("abcde fghij"), "1");
-            Assert.AreEqual(solution.Part2("abcde xyz ecdab"), "0");
-            Assert.AreEqual(solution.Part2("a ab abc abd abf abj"), "1");
-            Assert.AreEqual(solution.Part2("iiii oiii ooii oooi oooo"), "1");
-            Assert.AreEqual(solution.Part2("oiii ioii iioi iiio"), "0");
+            Assert.AreEqual("1", solution.Part2("abcde fghij"));
+            Assert.AreEqual("0", solution.Part2("abcde xyz ecdab"));
+            Assert.AreEqual("1", solution.Part2("a ab abc abd abf abj"));
+            Assert.AreEqual("1", solution.Part2("iiii oiii ooii oooi oooo"));
+            Assert.AreEqual("0", solution.Part2("oiii ioii iioi iiio"));
         }
 
         [TestMethod]
@@ -43,7 +43,7 @@ namespace Hermany.AoC.Tests._2017._04
         {
             var solution = CreateSolution();
             var input = Program.GetPuzzleInput(solution);
-            Assert.AreEqual(solution.Part2(input), "119");
+            Assert.AreEqual("119", solution.Part2(input));
         }
     }
 }
