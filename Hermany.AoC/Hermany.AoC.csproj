@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2016\01\Instruction.cs" />
     <Compile Include="2016\02\Keypad.cs" />
     <Compile Include="2016\02\Node.cs" />
     <Compile Include="2016\07\IPv7Address.cs" />
