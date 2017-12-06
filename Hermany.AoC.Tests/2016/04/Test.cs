@@ -28,7 +28,7 @@ namespace Hermany.AoC.Tests._2016._04
         public void Part2PuzzleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual("482", solution.Part2(Program.GetPuzzleInput(solution)));
+            Assert.AreEqual("", solution.Part2(Program.GetPuzzleInput(solution)));
         }
     }
 }
