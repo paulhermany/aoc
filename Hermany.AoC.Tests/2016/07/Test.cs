@@ -14,34 +14,34 @@ namespace Hermany.AoC.Tests._2016._07
         public void Part1SampleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual(solution.Part1("abba[mnop]qrst"), "1");
-            Assert.AreEqual(solution.Part1("abcd[bddb]xyyx"), "0");
-            Assert.AreEqual(solution.Part1("aaaa[qwer]tyui"), "0");
-            Assert.AreEqual(solution.Part1("ioxxoj[asdfgh]zxcvbn"), "1");
+            Assert.AreEqual("1", solution.Part1("abba[mnop]qrst"));
+            Assert.AreEqual("0", solution.Part1("abcd[bddb]xyyx"));
+            Assert.AreEqual("0", solution.Part1("aaaa[qwer]tyui"));
+            Assert.AreEqual("1", solution.Part1("ioxxoj[asdfgh]zxcvbn"));
         }
 
         [TestMethod]
         public void Part1PuzzleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual(solution.Part1(Program.GetPuzzleInput(solution)), "118");
+            Assert.AreEqual("118", solution.Part1(Program.GetPuzzleInput(solution)));
         }
 
         [TestMethod]
         public void Part2SampleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual(solution.Part2("aba[bab]xyz"), "1");
-            Assert.AreEqual(solution.Part2("xyx[xyx]xyx"), "0");
-            Assert.AreEqual(solution.Part2("aaa[kek]eke"), "1");
-            Assert.AreEqual(solution.Part2("zazbz[bzb]cdb"), "1");
+            Assert.AreEqual("1", solution.Part2("aba[bab]xyz"));
+            Assert.AreEqual("0", solution.Part2("xyx[xyx]xyx"));
+            Assert.AreEqual("1", solution.Part2("aaa[kek]eke"));
+            Assert.AreEqual("1", solution.Part2("zazbz[bzb]cdb"));
         }
 
         [TestMethod]
         public void Part2PuzzleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual(solution.Part2(Program.GetPuzzleInput(solution)), "260");
+            Assert.AreEqual("260", solution.Part2(Program.GetPuzzleInput(solution)));
         }
     }
 }
