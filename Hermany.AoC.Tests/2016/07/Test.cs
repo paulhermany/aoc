@@ -28,18 +28,16 @@ namespace Hermany.AoC.Tests._2016._07
         }
 
         [TestMethod]
-        [Ignore]
         public void Part2SampleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual(solution.Part1("aba[bab]xyz"), "1");
-            Assert.AreEqual(solution.Part1("xyx[xyx]xyx"), "0");
-            Assert.AreEqual(solution.Part1("aaa[kek]eke"), "1");
-            Assert.AreEqual(solution.Part1("zazbz[bzb]cdb"), "1");
+            Assert.AreEqual(solution.Part2("aba[bab]xyz"), "1");
+            Assert.AreEqual(solution.Part2("xyx[xyx]xyx"), "0");
+            Assert.AreEqual(solution.Part2("aaa[kek]eke"), "1");
+            Assert.AreEqual(solution.Part2("zazbz[bzb]cdb"), "1");
         }
 
         [TestMethod]
-        [Ignore]
         public void Part2PuzzleInput()
         {
             var solution = CreateSolution();

@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="2016\02\Keypad.cs" />
     <Compile Include="2016\02\Node.cs" />
+    <Compile Include="2016\07\IPv7Address.cs" />
     <Compile Include="2016\21\Solution.cs" />
     <Compile Include="2016\22\Solution.cs" />
     <Compile Include="2016\23\Solution.cs" />
