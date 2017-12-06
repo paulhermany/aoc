@@ -16,7 +16,7 @@ namespace Hermany.AoC
     {
         public static void Main(string[] args)
         {
-            var solution = new _2017._05.Solution();
+            var solution = new _2017._06.Solution();
 
             var path = GetPath(solution);
 
