@@ -71,6 +71,8 @@
     <Compile Include="2016\03\Solution.cs" />
     <Compile Include="2016\02\Solution.cs" />
     <Compile Include="2016\01\Solution.cs" />
+    <Compile Include="2017\07\Node.cs" />
+    <Compile Include="2017\07\Solution.cs" />
     <Compile Include="2017\06\Solution.cs" />
     <Compile Include="2017\05\Solution.cs" />
     <Compile Include="Common\LinqExtensions.cs" />
@@ -168,6 +170,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="2017\01\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\07\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="2017\06\input.txt">

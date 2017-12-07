@@ -14,7 +14,7 @@ namespace Hermany.AoC.Tests._2016._04
         public void Part1SampleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual("1514", solution.Part1("aaaaa -bbb-z-y-x-123[abxyz]", "a-b-c-d-e-f-g-h-987[abcde]", "not-a-real-room-404[oarel]", "totally-real-room-200[decoy]"));
+            Assert.AreEqual("1514", solution.Part1("aaaaa-bbb-z-y-x-123[abxyz]", "a-b-c-d-e-f-g-h-987[abcde]", "not-a-real-room-404[oarel]", "totally-real-room-200[decoy]"));
         }
 
         [TestMethod]
@@ -28,7 +28,7 @@ namespace Hermany.AoC.Tests._2016._04
         public void Part2PuzzleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual("", solution.Part2(Program.GetPuzzleInput(solution)));
+            Assert.AreEqual("482", solution.Part2(Program.GetPuzzleInput(solution)));
         }
     }
 }
