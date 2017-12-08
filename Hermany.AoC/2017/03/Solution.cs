@@ -64,7 +64,7 @@ namespace Hermany.AoC._2017._03
             return adjacentSum.ToString();
         }
 
-        private int AdjacentSum(Dictionary<string, int> values, int x, int y)
+        private static int AdjacentSum(IReadOnlyDictionary<string, int> values, int x, int y)
         {
             var sum = 0;
             if (values.ContainsKey($"{x - 1},{y}")) sum += values[$"{x - 1},{y}"];
