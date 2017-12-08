@@ -1,9 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
-using Hermany.AoC.Common;
 
 namespace Hermany.AoC._2016._07
 {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using Hermany.AoC.Common;
+﻿using System.Text;
 
 namespace Hermany.AoC._2016._02
 {

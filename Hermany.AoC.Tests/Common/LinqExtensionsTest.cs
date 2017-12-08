@@ -1,5 +1,4 @@
-﻿using System;
-using Hermany.AoC.Common;
+﻿using Hermany.AoC.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Hermany.AoC.Tests.Common

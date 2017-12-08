@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using Hermany.AoC.Common;
 
 namespace Hermany.AoC._2016._05
 {

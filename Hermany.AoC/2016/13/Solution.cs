@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using Hermany.AoC.Common;
-
-namespace Hermany.AoC._2016._13
+﻿namespace Hermany.AoC._2016._13
 {
     public class Solution : ISolution
     {

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using Hermany.AoC.Common;
 
 namespace Hermany.AoC._2016._06
