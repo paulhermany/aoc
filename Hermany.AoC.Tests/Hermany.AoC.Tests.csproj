@@ -63,6 +63,7 @@
     <Compile Include="2017\05\Test.cs" />
     <Compile Include="2017\04\Test.cs" />
     <Compile Include="2017\03\Test.cs" />
+    <Compile Include="Common\LinqExtensionsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
