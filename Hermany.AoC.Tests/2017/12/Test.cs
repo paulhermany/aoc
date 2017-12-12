@@ -12,7 +12,14 @@ namespace Hermany.AoC.Tests._2017._12
         public void Part1SampleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual("", solution.Part1(""));
+            Assert.AreEqual("6", solution.Part1(
+                "0 <-> 2",
+                "1 <-> 1",
+                "2 <-> 0, 3, 4",
+                "3 <-> 2, 4",
+                "4 <-> 2, 3, 6",
+                "5 <-> 6",
+                "6 <-> 4, 5"));
         }
 
         [TestMethod]
@@ -20,14 +27,21 @@ namespace Hermany.AoC.Tests._2017._12
         {
             var solution = CreateSolution();
             var input = Program.GetPuzzleInput(solution);
-            Assert.AreEqual("", solution.Part1(input));
+            Assert.AreEqual("175", solution.Part1(input));
         }
 
         [TestMethod]
         public void Part2SampleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual("", solution.Part2(""));
+            Assert.AreEqual("2", solution.Part2(
+                "0 <-> 2",
+                "1 <-> 1",
+                "2 <-> 0, 3, 4",
+                "3 <-> 2, 4",
+                "4 <-> 2, 3, 6",
+                "5 <-> 6",
+                "6 <-> 4, 5"));
         }
 
         [TestMethod]
@@ -35,7 +49,7 @@ namespace Hermany.AoC.Tests._2017._12
         {
             var solution = CreateSolution();
             var input = Program.GetPuzzleInput(solution);
-            Assert.AreEqual("", solution.Part2(input));
+            Assert.AreEqual("213", solution.Part2(input));
         }
     }
 }
