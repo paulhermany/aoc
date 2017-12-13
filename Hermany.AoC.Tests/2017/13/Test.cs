@@ -12,11 +12,8 @@ namespace Hermany.AoC.Tests._2017._13
         public void Part1SampleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual("24", solution.Part1(
-                "0: 3",
-                "1: 2",
-                "4: 4",
-                "6: 4"));
+            var input = Program.GetPuzzleInput(solution, "input.sample.txt");
+            Assert.AreEqual("24", solution.Part1(input));
         }
 
         [TestMethod]
@@ -31,11 +28,8 @@ namespace Hermany.AoC.Tests._2017._13
         public void Part2SampleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual("10", solution.Part2(
-                "0: 3",
-                "1: 2",
-                "4: 4",
-                "6: 4"));
+            var input = Program.GetPuzzleInput(solution, "input.sample.txt");
+            Assert.AreEqual("10", solution.Part2(input));
         }
 
         [TestMethod]

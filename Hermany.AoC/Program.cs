@@ -20,7 +20,7 @@ namespace Hermany.AoC
 
             var path = GetPath(solution);
 
-            var input = GetPuzzleInput(path);
+            var input = GetPuzzleInput(path, "input.txt");
             
             var part1 = solution.Part1(input);
             File.WriteAllText(Path.Combine(path, "output-part1.txt"), part1);
@@ -34,14 +34,14 @@ namespace Hermany.AoC
             Console.ReadKey();
         }
         
-        public static string[] GetPuzzleInput(ISolution solution)
+        public static string[] GetPuzzleInput(ISolution solution, string fileName = "input.txt")
         {
-            return GetPuzzleInput(GetPath(solution));
+            return GetPuzzleInput(GetPath(solution), fileName);
         }
-
-        private static string[] GetPuzzleInput(string path)
+        
+        private static string[] GetPuzzleInput(string path, string fileName)
         {
-            return File.ReadAllLines(Path.Combine(path, "input.txt"));
+            return File.ReadAllLines(Path.Combine(path, fileName));
         }
 
         private static string GetPath(ISolution solution)

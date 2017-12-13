@@ -12,11 +12,8 @@ namespace Hermany.AoC.Tests._2017._08
         public void Part1SampleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual("1", solution.Part1(
-                "b inc 5 if a > 1",
-                "a inc 1 if b < 5",
-                "c dec -10 if a >= 1",
-                "c inc -20 if c == 10"));
+            var input = Program.GetPuzzleInput(solution, "input.sample.txt");
+            Assert.AreEqual("1", solution.Part1(input));
         }
 
         [TestMethod]
@@ -31,11 +28,8 @@ namespace Hermany.AoC.Tests._2017._08
         public void Part2SampleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual("10", solution.Part2(
-                "b inc 5 if a > 1",
-                "a inc 1 if b < 5",
-                "c dec -10 if a >= 1",
-                "c inc -20 if c == 10"));
+            var input = Program.GetPuzzleInput(solution, "input.sample.txt");
+            Assert.AreEqual("10", solution.Part2(input));
         }
 
         [TestMethod]

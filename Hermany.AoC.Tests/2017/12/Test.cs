@@ -12,14 +12,8 @@ namespace Hermany.AoC.Tests._2017._12
         public void Part1SampleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual("6", solution.Part1(
-                "0 <-> 2",
-                "1 <-> 1",
-                "2 <-> 0, 3, 4",
-                "3 <-> 2, 4",
-                "4 <-> 2, 3, 6",
-                "5 <-> 6",
-                "6 <-> 4, 5"));
+            var input = Program.GetPuzzleInput(solution, "input.sample.txt");
+            Assert.AreEqual("6", solution.Part1(input));
         }
 
         [TestMethod]
@@ -34,14 +28,8 @@ namespace Hermany.AoC.Tests._2017._12
         public void Part2SampleInput()
         {
             var solution = CreateSolution();
-            Assert.AreEqual("2", solution.Part2(
-                "0 <-> 2",
-                "1 <-> 1",
-                "2 <-> 0, 3, 4",
-                "3 <-> 2, 4",
-                "4 <-> 2, 3, 6",
-                "5 <-> 6",
-                "6 <-> 4, 5"));
+            var input = Program.GetPuzzleInput(solution, "input.sample.txt");
+            Assert.AreEqual("2", solution.Part2(input));
         }
 
         [TestMethod]
