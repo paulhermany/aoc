@@ -57,6 +57,7 @@
     <Compile Include="2016\01\Test.cs" />
     <Compile Include="2017\02\Test.cs" />
     <Compile Include="2017\01\Test.cs" />
+    <Compile Include="2017\13\Test.cs" />
     <Compile Include="2017\12\Test.cs" />
     <Compile Include="2017\11\Test.cs" />
     <Compile Include="2017\10\Test.cs" />
