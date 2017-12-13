@@ -8,6 +8,14 @@ namespace Hermany.AoC
     {
         public static void Main(string[] args)
         {
+            //for (var i = 0; i < 32; i++)
+            //{
+            //    var m = 5;
+            //    Console.WriteLine($"{i}\t{(Math.Abs(m - (i + m) % (m * 2)))}");
+            //}
+
+            //Console.ReadLine();
+
             var solution = new _2017._13.Solution();
 
             var path = GetPath(solution);
