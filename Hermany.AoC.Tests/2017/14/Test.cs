@@ -13,7 +13,7 @@ namespace Hermany.AoC.Tests._2017._14
         {
             var solution = CreateSolution();
             var input = Program.GetPuzzleInput(solution, "input.sample.txt");
-            Assert.AreEqual("", solution.Part1(input));
+            Assert.AreEqual("8108", solution.Part1(input));
         }
 
         [TestMethod]
@@ -21,7 +21,7 @@ namespace Hermany.AoC.Tests._2017._14
         {
             var solution = CreateSolution();
             var input = Program.GetPuzzleInput(solution);
-            Assert.AreEqual("", solution.Part1(input));
+            Assert.AreEqual("8222", solution.Part1(input));
         }
 
         [TestMethod]
@@ -29,7 +29,7 @@ namespace Hermany.AoC.Tests._2017._14
         {
             var solution = CreateSolution();
             var input = Program.GetPuzzleInput(solution, "input.sample.txt");
-            Assert.AreEqual("", solution.Part2(input));
+            Assert.AreEqual("1242", solution.Part2(input));
         }
 
         [TestMethod]
@@ -37,7 +37,7 @@ namespace Hermany.AoC.Tests._2017._14
         {
             var solution = CreateSolution();
             var input = Program.GetPuzzleInput(solution);
-            Assert.AreEqual("", solution.Part2(input));
+            Assert.AreEqual("1086", solution.Part2(input));
         }
     }
 }
