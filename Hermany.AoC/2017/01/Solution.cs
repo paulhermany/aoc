@@ -3,13 +3,19 @@ using System.Linq;
 
 namespace Hermany.AoC._2017._01
 {
+    /// <summary>Inverse Captcha
+    /// https://adventofcode.com/2017/day/1
+    /// </summary>
     public class Solution : ISolution
     {
         public string Part1(params string[] input) => 
-            CaptchaSum(input[0].Select(_ => int.Parse(_.ToString()))).ToString();
+            CaptchaSum(ConvertToInt32(input[0])).ToString();
 
         public string Part2(params string[] input) =>
-            CaptchaSum(input[0].Select(_ => int.Parse(_.ToString())),input[0].Length / 2).ToString();
+            CaptchaSum(ConvertToInt32(input[0]),input[0].Length / 2).ToString();
+
+        public static IEnumerable<int> ConvertToInt32(string value) =>
+            value.Select(_ => _ - 48);
 
         public static int CaptchaSum(IEnumerable<int> values, int compareIndexOffset = 1)
         {
