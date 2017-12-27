@@ -55,7 +55,7 @@ namespace Hermany.AoC._2017._18
                         index++;
                         break;
                     case "jgz":
-                        if (GetValue(registers, x) != 0) index += (int) GetValue(registers, y);
+                        if (GetValue(registers, x) > 0) index += (int) GetValue(registers, y);
                         else index++;
                         break;
                 }
