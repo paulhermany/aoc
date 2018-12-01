@@ -9,20 +9,22 @@ namespace Hermany.AoC._2015._03
 {
     public class Solution : ISolution
     {
-        public string[] Part1(params string[] input)
+        public string Part1(params string[] input)
         {
-            return input.Select(_ => GetNumberOfVisitedHouses(_).ToString()).ToArray();
+            return GetNumberOfVisitedHouses(input.Single()).ToString();
         }
 
-        public string[] Part2(params string[] input)
+        public string Part2(params string[] input)
         {
-            return input.Select(_ => GetNumberOfVisitedHouses(_, 2).ToString()).ToArray();
+            return GetNumberOfVisitedHouses(input.Single(), 2).ToString();
         }
         
         public int GetNumberOfVisitedHouses(string val, int numberOfAgents = 1, char north = '^', char south = 'v', char east = '>', char west = '<')
         {
-            var houses = new Dictionary<Tuple<int, int>, int>();
-            houses.Add(new Tuple<int, int>(0, 0), 1);
+            var houses = new Dictionary<Tuple<int, int>, int>
+            {
+                {new Tuple<int, int>(0, 0), 1}
+            };
 
             var agents = Enumerable.Range(0, numberOfAgents)
                 .Select(_ => new Point {X = 0, Y = 0})

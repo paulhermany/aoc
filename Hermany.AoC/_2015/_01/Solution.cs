@@ -9,14 +9,14 @@ namespace Hermany.AoC._2015._01
 {
     public class Solution : ISolution
     {
-        public string[] Part1(params string[] input)
+        public string Part1(params string[] input)
         {
-            return input.Select(_ => GetOffset(_).ToString()).ToArray();
+            return GetOffset(input.Single()).ToString();
         }
 
-        public string[] Part2(params string[] input)
+        public string Part2(params string[] input)
         {
-            return input.Select(_ => GetIndexOfFirstNegativeOffset(_).ToString()).ToArray();
+            return GetIndexOfFirstNegativeOffset(input.Single()).ToString();
         }
        
         public int GetOffset(string val, char up = '(', char down = ')')

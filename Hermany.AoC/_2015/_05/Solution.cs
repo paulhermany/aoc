@@ -11,14 +11,14 @@ namespace Hermany.AoC._2015._05
 {
     public class Solution : ISolution
     {
-        public string[] Part1(params string[] input)
+        public string Part1(params string[] input)
         {
-            return new[] {input.Count(IsNice).ToString()};
+            return input.Count(IsNice).ToString();
         }
 
-        public string[] Part2(params string[] input)
+        public string Part2(params string[] input)
         {
-            return new[] { input.Count(IsNice2).ToString() };
+            return input.Count(IsNice2).ToString();
         }
 
         public bool IsNice(string value)

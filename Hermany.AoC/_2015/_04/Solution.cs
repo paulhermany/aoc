@@ -10,16 +10,16 @@ namespace Hermany.AoC._2015._04
 {
     public class Solution : ISolution
     {
-        public string[] Part1(params string[] input)
+        public string Part1(params string[] input)
         {
             var md5 = MD5.Create();
-            return input.Select(_ => GetIndexOfMd5HashStartingWith(md5, _).ToString()).ToArray();            
+            return GetIndexOfMd5HashStartingWith(md5, input.Single()).ToString();            
         }
 
-        public string[] Part2(params string[] input)
+        public string Part2(params string[] input)
         {
             var md5 = MD5.Create();
-            return input.Select(_ => GetIndexOfMd5HashStartingWith(md5, _, "000000").ToString()).ToArray();
+            return GetIndexOfMd5HashStartingWith(md5, input.Single(), "000000").ToString();
         }
 
         public int GetIndexOfMd5HashStartingWith(MD5 md5, string secretKey, string startsWith = "00000")

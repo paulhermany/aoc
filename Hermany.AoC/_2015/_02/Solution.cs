@@ -9,7 +9,7 @@ namespace Hermany.AoC._2015._02
 {
     public class Solution : ISolution
     {
-        public string[] Part1(params string[] input)
+        public string Part1(params string[] input)
         {
             var boxes = input
                 .Select(_ => _.Split('x').Select(int.Parse).ToArray())
@@ -20,10 +20,10 @@ namespace Hermany.AoC._2015._02
                 .Select(_ => _.Aggregate(0, (a, b) => a + 2 * b) + _.Min())
                 .Sum();
 
-            return new[] {surfaceArea.ToString()};
+            return surfaceArea.ToString();
         }
 
-        public string[] Part2(params string[] input)
+        public string Part2(params string[] input)
         {
             var boxes = input
                 .Select(_ => _.Split('x').Select(int.Parse).ToArray())
@@ -33,7 +33,7 @@ namespace Hermany.AoC._2015._02
                 .Select(_ => _.L * _.W * _.H + new[] { 2 * _.L + 2 * _.W, 2 * _.W + 2 * _.H, 2 * _.H + 2 * _.L }.Min())
                 .Sum();
 
-            return new[] { length.ToString() };
+            return length.ToString();
         }
         
     }

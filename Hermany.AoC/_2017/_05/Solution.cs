@@ -5,12 +5,12 @@ namespace Hermany.AoC._2017._05
 {
     public class Solution : ISolution
     {
-        public string[] Part1(params string[] input)
+        public string Part1(params string[] input)
         {
             throw new NotImplementedException();
         }
 
-        public string[] Part2(params string[] input)
+        public string Part2(params string[] input)
         {
             throw new NotImplementedException();
         }

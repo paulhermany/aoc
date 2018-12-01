@@ -25,8 +25,8 @@ namespace Hermany.AoC
 
             System.IO.Directory.CreateDirectory(OutputDirectory);
 
-            System.IO.File.WriteAllLines($@"{OutputDirectory}\{date}a.txt", solution.Part1(input));
-            System.IO.File.WriteAllLines($@"{OutputDirectory}\{date}b.txt", solution.Part2(input));
+            System.IO.File.WriteAllText($@"{OutputDirectory}\{date}a.txt", solution.Part1(input));
+            System.IO.File.WriteAllText($@"{OutputDirectory}\{date}b.txt", solution.Part2(input));
         }
 
         private static string GetSolutionDate(ISolution solution)
