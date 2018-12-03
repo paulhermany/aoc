@@ -15,22 +15,20 @@ namespace Hermany.AoC._2018._01
 
         public string Part2(params string[] input)
         {
-            // same as part 1 only not summing them - just get list of changes
-            var changes = input.Select(_ => (_[0] == '-' ? -1 : 1) * Convert.ToInt64(_.Substring(1)));
+            var changes = input.Select(_ => (_[0] == '-' ? -1 : 1) * Convert.ToInt64(_.Substring(1))).ToArray();
 
             long freq = 0;
             var freqs = new HashSet<long>();
+            var index = 0;
 
-            // hot damn, not proud of this while(true) thing... need to loop through the changes until you reach a repeated freq
-            while (true)
+            while (!freqs.Contains(freq))
             {
-                foreach (var change in changes)
-                {
-                    if (freqs.Contains(freq)) return freq.ToString();
-                    freqs.Add(freq);
-                    freq += change;
-                }
+                freqs.Add(freq);
+                freq += changes[index];
+                index = (index + 1) % changes.Length;
             }
+
+            return freq.ToString();
         }
     }
 }
