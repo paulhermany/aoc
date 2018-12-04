@@ -49,7 +49,6 @@
     <Compile Include="_2018\_02\Solution.cs" />
     <Compile Include="_2018\_03\Claim.cs" />
     <Compile Include="_2018\_03\Solution.cs" />
-    <Compile Include="_2018\_04\LogEntry.cs" />
     <Compile Include="_2018\_04\Solution.cs" />
     <Compile Include="_2018\_05\Solution.cs" />
     <Compile Include="_2018\_06\Solution.cs" />
