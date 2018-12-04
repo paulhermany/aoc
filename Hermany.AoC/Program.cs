@@ -17,7 +17,7 @@ namespace Hermany.AoC
 
         public static void Main(string[] args)
         {
-            var solution = new _2018._03.Solution();
+            var solution = new _2018._04.Solution();
 
             var date = GetSolutionDate(solution);
             
