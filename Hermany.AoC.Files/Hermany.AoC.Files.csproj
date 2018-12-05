@@ -67,6 +67,7 @@
     <Content Include="Output\2018\2018-12-04b.txt" />
     <Content Include="Output\2018\2018-12-05a.txt" />
     <Content Include="Output\2018\2018-12-05b.txt" />
+    <Content Include="Output\Summary.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
