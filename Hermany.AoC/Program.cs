@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Hermany.AoC.Common;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Hermany.AoC.Common;
-using Hermany.AoC._2015._01;
 
 namespace Hermany.AoC
 {
@@ -25,16 +18,16 @@ namespace Hermany.AoC
             var inputDirectory = (args.Length > 1 ? args[1] : null) ?? DefaultInputDirectory;
             var outputDirectory = (args.Length > 2 ? args[2] : null) ?? DefaultOutputDirectory;
 
-            if (!System.IO.Directory.Exists(inputDirectory))
+            if (!Directory.Exists(inputDirectory))
                 throw new ArgumentException("The specified input directory does not exist.");
             
-            if (!System.IO.Directory.Exists(outputDirectory))
+            if (!Directory.Exists(outputDirectory))
                 Directory.CreateDirectory($@"{outputDirectory}\{date:yyyy}");
 
             var ns = typeof(Program).Namespace;
             var solution = (ISolution)Activator.CreateInstance(ns, $"{ns}._{date:yyyy}._{date:dd}.Solution").Unwrap();
             
-            var input = System.IO.File.ReadAllLines($@"{inputDirectory}\{date:yyyy}\{date:yyyy-MM-dd}.txt");
+            var input = File.ReadAllLines($@"{inputDirectory}\{date:yyyy}\{date:yyyy-MM-dd}.txt");
 
             var sw = new Stopwatch();
 
