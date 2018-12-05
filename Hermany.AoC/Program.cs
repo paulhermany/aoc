@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
@@ -10,30 +11,34 @@ using Hermany.AoC._2015._01;
 
 namespace Hermany.AoC
 {
-    class Program
+    public class Program
     {
-        private const string InputDirectory = @"Input";
-        private const string OutputDirectory = @"Output";
+        private const string DefaultDate = @"2018-12-01";
+        private const string DefaultInputDirectory = @"..\..\..\Hermany.Aoc.Files\Input";
+        private const string DefaultOutputDirectory = @"..\..\..\Hermany.Aoc.Files\Output";
 
         public static void Main(string[] args)
         {
-            var solution = new _2018._04.Solution();
+            var date = DateTime.Parse(args.Length > 0 ? args[0] : null ?? DefaultDate);
+            var inputDirectory = (args.Length > 1 ? args[0] : null) ?? DefaultInputDirectory;
+            var outputDirectory = (args.Length > 2 ? args[0] : null) ?? DefaultOutputDirectory;
 
-            var date = GetSolutionDate(solution);
+            if (!System.IO.Directory.Exists(inputDirectory))
+                throw new ArgumentException("The specified input directory does not exist.");
             
-            var input = System.IO.File.ReadAllLines($@"{InputDirectory}\{date}.txt");
+            if (!System.IO.Directory.Exists(outputDirectory))
+                throw new ArgumentException("The specified output directory does not exist.");
 
-            System.IO.Directory.CreateDirectory(OutputDirectory);
+            var ns = typeof(Program).Namespace;
 
-            System.IO.File.WriteAllText($@"{OutputDirectory}\{date}a.txt", solution.Part1(input));
-            System.IO.File.WriteAllText($@"{OutputDirectory}\{date}b.txt", solution.Part2(input));
-        }
+            var solution = (ISolution)Activator.CreateInstance(ns, $"{ns}._{date:yyyy}._{date:dd}.Solution").Unwrap();
+            
+            var input = System.IO.File.ReadAllLines($@"{inputDirectory}\{date:yyyy}\{date:yyyy-MM-dd}.txt");
 
-        private static string GetSolutionDate(ISolution solution)
-        {
-            return string.Join("-12-",
-                solution.GetType().FullName?.Split('.').Skip(2).Take(2).Select(_ => _.Replace("_", string.Empty))
-                    .ToArray() ?? new string[] { });
+            System.IO.Directory.CreateDirectory($@"{outputDirectory}\{date:yyyy}");
+
+            System.IO.File.WriteAllText($@"{outputDirectory}\{date:yyyy}\{date:yyyy-MM-dd}a.txt", solution.Part1(input));
+            System.IO.File.WriteAllText($@"{outputDirectory}\{date:yyyy}\{date:yyyy-MM-dd}b.txt", solution.Part2(input));
         }
     }
 }

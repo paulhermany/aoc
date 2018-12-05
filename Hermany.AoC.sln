@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hermany.AoC", "Hermany.AoC\Hermany.AoC.csproj", "{FFDCCC00-502C-405C-95B7-C53CDD765856}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hermany.AoC.Files", "Hermany.AoC.Files\Hermany.AoC.Files.csproj", "{E2F5DFE5-9CE0-4E8B-9297-4DDD7184CDC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{FFDCCC00-502C-405C-95B7-C53CDD765856}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFDCCC00-502C-405C-95B7-C53CDD765856}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFDCCC00-502C-405C-95B7-C53CDD765856}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2F5DFE5-9CE0-4E8B-9297-4DDD7184CDC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2F5DFE5-9CE0-4E8B-9297-4DDD7184CDC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

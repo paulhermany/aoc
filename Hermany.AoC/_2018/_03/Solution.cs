@@ -9,7 +9,7 @@ namespace Hermany.AoC._2018._03
     public class Solution : ISolution
     {
         // storing a dictionary of x,y coords and either the claim count per "square" or the id of the claim for part 2
-        private Dictionary<ValueTuple<int, int>, int> Points = new Dictionary<ValueTuple<int, int>, int>();
+        private Dictionary<ValueTuple<int, int>, List<int>> Points = new Dictionary<ValueTuple<int, int>, List<int>>();
         
         public string Part1(params string[] input)
         {
@@ -31,10 +31,10 @@ namespace Hermany.AoC._2018._03
 
             foreach (var claim in claims)
             {
-                RecordPoints(claim);
+                RecordIds(claim);
             }
 
-            return Points.Count(_ => _.Value > 1).ToString();
+            return Points.Count(_ => _.Value.Count > 1).ToString();
         }
 
         public string Part2(params string[] input)
@@ -64,20 +64,6 @@ namespace Hermany.AoC._2018._03
             return claims.Single(IsSolo).Id.ToString();
         }
 
-        private void RecordPoints(Claim claim)
-        {
-            for (var x = claim.Left; x < claim.Left + claim.Width; x++)
-            {
-                for (var y = claim.Top; y < claim.Top + claim.Height; y++)
-                {
-                    var tuple = new ValueTuple<int, int>(x, y);
-                    if(!Points.ContainsKey(tuple))
-                        Points.Add(tuple, 0);
-                    Points[tuple]++;
-                }
-            }
-        }
-
         private void RecordIds(Claim claim)
         {
             for (var x = claim.Left; x < claim.Left + claim.Width; x++)
@@ -86,9 +72,9 @@ namespace Hermany.AoC._2018._03
                 {
                     var tuple = new ValueTuple<int, int>(x, y);
                     if (!Points.ContainsKey(tuple))
-                        Points.Add(tuple, claim.Id);
-                    else
-                        Points[tuple] = 0;
+                        Points.Add(tuple, new List<int>());
+                    
+                    Points[tuple].Add(claim.Id);
                 }
             }
         }
@@ -100,8 +86,7 @@ namespace Hermany.AoC._2018._03
                 for (var y = claim.Top; y < claim.Top + claim.Height; y++)
                 {
                     var tuple = new ValueTuple<int, int>(x, y);
-                    if (!Points.ContainsKey(tuple)) return false;
-                    if (Points[tuple] != claim.Id) return false;
+                    if (!Points.ContainsKey(tuple) || Points[tuple].Count > 1) return false;
                 }
             }
 
