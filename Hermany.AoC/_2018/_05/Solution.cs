@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using Hermany.AoC.Common;
 
@@ -8,7 +9,7 @@ namespace Hermany.AoC._2018._05
     {
         public string Part1(params string[] input)
         {
-            return React(input[0]).Length.ToString();
+            return React(input[0]).ToString();
         }
 
         public string Part2(params string[] input)
@@ -24,42 +25,32 @@ namespace Hermany.AoC._2018._05
                         .Replace(c.ToString().ToUpper(), string.Empty)
                 );
 
-                if (units.Length < minLength)
-                    minLength = units.Length;
+                if (units < minLength)
+                    minLength = units;
             }
 
             return minLength.ToString();
         }
 
-        private static string React(string units)
+        private static int React(string units)
         {
-            var i = 0;
-
-            while (i + 1 < units.Length)
+            var stack = new Stack();
+            
+            foreach (var u in units)
             {
-                while (
-                    // make sure index is greater than zero since it can be decremented
-                    i > 0
-                    // make sure index is within bounds of array since it can be incremented
-                    && i + 1 < units.Length
-                    // make sure the polarity (case) is different (characters are not equal)
-                    && units[i] != units[i + 1]
-                    // check for aA and Aa cases
-                    &&
-                    (units[i].ToString() == units[i + 1].ToString().ToLower() ||
-                     units[i].ToString().ToLower() == units[i + 1].ToString()))
-                {
-                    // remove the reactive units
-                    units = units.Remove(i, 2);
-                    // decrement the index to examine the previous unit now that the reactive unit has been removed
-                    i--;
-                }
-
-                // advance to the next unit
-                i++;
+                if (
+                    // can't peek at an empty stack
+                    stack.Count > 0
+                    // check for reaction (aA or Aa)
+                    && (char)stack.Peek() != u
+                    && string.Equals(stack.Peek().ToString(), u.ToString(), StringComparison.CurrentCultureIgnoreCase)
+                )
+                    stack.Pop();
+                else
+                    stack.Push(u);
             }
 
-            return units;
+            return stack.Count;
         }
 
     }
