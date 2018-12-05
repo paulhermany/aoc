@@ -29,8 +29,7 @@ namespace Hermany.AoC
                 throw new ArgumentException("The specified input directory does not exist.");
             
             if (!System.IO.Directory.Exists(outputDirectory))
-
-            Directory.CreateDirectory($@"{outputDirectory}\{date:yyyy}");
+                Directory.CreateDirectory($@"{outputDirectory}\{date:yyyy}");
 
             var ns = typeof(Program).Namespace;
             var solution = (ISolution)Activator.CreateInstance(ns, $"{ns}._{date:yyyy}._{date:dd}.Solution").Unwrap();
