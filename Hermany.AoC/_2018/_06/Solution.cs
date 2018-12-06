@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -21,14 +22,14 @@ namespace Hermany.AoC._2018._06
                     X = int.Parse(tokens[0].Trim()),
                     Y = int.Parse(tokens[1].Trim())
                 };
-            }).ToDictionary(_ => new ValueTuple<int, int>(_.X, _.Y), _ => _.Id);
+            }).ToDictionary(_ => (_.X, _.Y), _ => _.Id);
             
             var minX = points.Keys.Min(_ => _.Item1);
             var maxX = points.Keys.Max(_ => _.Item1);
             var minY = points.Keys.Min(_ => _.Item2);
             var maxY = points.Keys.Max(_ => _.Item2);
 
-            var grid = new ValueTuple<int, int>[maxX - minX + 1, maxY - minY + 1];
+            var grid = new int[maxX - minX + 1, maxY - minY + 1];
 
             for (var x = minX; x <= maxX; x++)
             {
@@ -41,14 +42,14 @@ namespace Hermany.AoC._2018._06
 
                     foreach (var p in points)
                     {
-                        var d = ManhattanDistance(p.Key, new ValueTuple<int, int>(x, y));
-
-                        if (d > minDistance) continue;
-
+                        var d = ManhattanDistance(p.Key, (x, y));
+                       
                         if (d == minDistance)
-                            grid[gridX, gridY] = new ValueTuple<int, int>(0, 0);
-                        
-                        grid[gridX, gridY] = new ValueTuple<int, int>(p.Value, d);
+                            grid[gridX, gridY] = 0;
+
+                        if (d >= minDistance) continue;
+
+                        grid[gridX, gridY] = p.Value;
                         minDistance = d;
                     }
                 }
@@ -64,14 +65,14 @@ namespace Hermany.AoC._2018._06
                     var gridX = x + (0 - minX);
                     var gridY = y + (0 - minY);
 
-                    if (!areas.ContainsKey(grid[gridX, gridY].Item1))
-                        areas.Add(grid[gridX, gridY].Item1, 0);
-                    areas[grid[gridX, gridY].Item1]++;
+                    if (!areas.ContainsKey(grid[gridX, gridY]))
+                        areas.Add(grid[gridX, gridY], 0);
+                    areas[grid[gridX, gridY]]++;
 
                     if (x == minX || x == maxX || y == minY || y == maxY)
                     {
-                        if (!borderedRegionIds.Contains(grid[gridX, gridY].Item1))
-                            borderedRegionIds.Add(grid[gridX, gridY].Item1);
+                        if (!borderedRegionIds.Contains(grid[gridX, gridY]))
+                            borderedRegionIds.Add(grid[gridX, gridY]);
                     }
                 }
             }
@@ -95,29 +96,27 @@ namespace Hermany.AoC._2018._06
                     X = int.Parse(tokens[0].Trim()),
                     Y = int.Parse(tokens[1].Trim())
                 };
-            }).ToDictionary(_ => new ValueTuple<int, int>(_.X, _.Y), _ => _.Id);
+            }).ToDictionary(_ => (_.X, _.Y), _ => _.Id);
 
             var minX = points.Keys.Min(_ => _.Item1);
             var maxX = points.Keys.Max(_ => _.Item1);
             var minY = points.Keys.Min(_ => _.Item2);
             var maxY = points.Keys.Max(_ => _.Item2);
-
-            var grid = new ValueTuple<int, int>[maxX - minX + 1, maxY - minY + 1];
-
+            
             var size = 0;
 
             for (var x = minX; x <= maxX; x++)
             {
                 for (var y = minY; y <= maxY; y++)
                 {
-                    if (points.Sum(_ => ManhattanDistance(new ValueTuple<int, int>(x, y), _.Key)) < 10000) size++;
+                    if (points.Sum(_ => ManhattanDistance((x, y), _.Key)) < 10000) size++;
                 }
             }
 
             return size.ToString();
         }
 
-       public static int ManhattanDistance(ValueTuple<int, int> a, ValueTuple<int, int> b)
+       public static int ManhattanDistance((int, int) a, (int, int) b)
             => Math.Abs(a.Item1 - b.Item1) + Math.Abs(a.Item2 - b.Item2);
     }
 }
