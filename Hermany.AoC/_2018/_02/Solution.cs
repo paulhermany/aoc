@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using Hermany.AoC.Common;
 
 namespace Hermany.AoC._2018._02
@@ -12,11 +11,12 @@ namespace Hermany.AoC._2018._02
         {
             var pairCount = 0;
             var tripletCount = 0;
+
             foreach (var id in input)
             {
-                // there has GOT to be a more elegant regex solution to this, but here's a linq quick and dirty way
-                pairCount += id.GroupBy(_ => _).Any(grp => grp.Count() == 2) ? 1 : 0;
-                tripletCount += id.GroupBy(_ => _).Any(grp => grp.Count() == 3) ? 1 : 0;
+                var letterGroups = id.GroupBy(_ => _).Select(_ => _.Count()).ToArray();
+                pairCount += letterGroups.Any(_ => _ == 2) ? 1 : 0;
+                tripletCount += letterGroups.Any(_ => _ == 3) ? 1 : 0;
             }
 
             return (pairCount * tripletCount).ToString();

@@ -9,41 +9,35 @@ namespace Hermany.AoC._2018._03
     public class Solution : ISolution
     {
         // storing a dictionary of x,y coords and either the claim count per "square" or the id of the claim for part 2
-        private Dictionary<ValueTuple<int, int>, List<int>> Points = new Dictionary<ValueTuple<int, int>, List<int>>();
+        private readonly Dictionary<ValueTuple<int, int>, List<int>> _points = new Dictionary<ValueTuple<int, int>, List<int>>();
         
         public string Part1(params string[] input)
         {
-            // parse the things
-            var regex =new Regex(@"^#(\d+)\s@\s(\d+),(\d+):\s(\d+)x(\d+)$");
+            var claims = ParseClaims(input);
 
-            var claims = input.Select(_ =>
-            {
-                var match = regex.Match(_);
-                return new Claim()
-                {
-                    Id = int.Parse(match.Groups[1].Value),
-                    Left = int.Parse(match.Groups[2].Value),
-                    Top = int.Parse(match.Groups[3].Value),
-                    Width = int.Parse(match.Groups[4].Value),
-                    Height = int.Parse(match.Groups[5].Value)
-                };
-            });
-
+            _points.Clear();
             foreach (var claim in claims)
-            {
                 RecordIds(claim);
-            }
 
-            return Points.Count(_ => _.Value.Count > 1).ToString();
+            return _points.Count(_ => _.Value.Count > 1).ToString();
         }
 
         public string Part2(params string[] input)
         {
-            Points.Clear();
+            var claims = ParseClaims(input);
 
+            _points.Clear();
+            foreach (var claim in claims)
+                RecordIds(claim);
+
+            return claims.Single(IsSolo).Id.ToString();
+        }
+
+        private Claim[] ParseClaims(string[] input)
+        {
             var regex = new Regex(@"^#(\d+)\s@\s(\d+),(\d+):\s(\d+)x(\d+)$");
 
-            var claims = input.Select(_ =>
+            return input.Select(_ =>
             {
                 var match = regex.Match(_);
                 return new Claim()
@@ -54,14 +48,7 @@ namespace Hermany.AoC._2018._03
                     Width = int.Parse(match.Groups[4].Value),
                     Height = int.Parse(match.Groups[5].Value)
                 };
-            }).ToList();
-
-            foreach (var claim in claims)
-            {
-                RecordIds(claim);
-            }
-
-            return claims.Single(IsSolo).Id.ToString();
+            }).ToArray();
         }
 
         private void RecordIds(Claim claim)
@@ -71,10 +58,10 @@ namespace Hermany.AoC._2018._03
                 for (var y = claim.Top; y < claim.Top + claim.Height; y++)
                 {
                     var tuple = new ValueTuple<int, int>(x, y);
-                    if (!Points.ContainsKey(tuple))
-                        Points.Add(tuple, new List<int>());
+                    if (!_points.ContainsKey(tuple))
+                        _points.Add(tuple, new List<int>());
                     
-                    Points[tuple].Add(claim.Id);
+                    _points[tuple].Add(claim.Id);
                 }
             }
         }
@@ -86,7 +73,7 @@ namespace Hermany.AoC._2018._03
                 for (var y = claim.Top; y < claim.Top + claim.Height; y++)
                 {
                     var tuple = new ValueTuple<int, int>(x, y);
-                    if (!Points.ContainsKey(tuple) || Points[tuple].Count > 1) return false;
+                    if (!_points.ContainsKey(tuple) || _points[tuple].Count > 1) return false;
                 }
             }
 

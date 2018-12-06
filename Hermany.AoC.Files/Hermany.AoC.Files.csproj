@@ -44,6 +44,7 @@
     <Content Include="Docs\2018\2018-12-01 [Chronal Calibration].txt" />
     <Content Include="Docs\2018\2018-12-02 [Inventory Management System].txt" />
     <Content Include="Docs\2018\2018-12-03 [No Matter How You Slice It] - Copy.txt" />
+    <Content Include="Docs\2018\2018-12-06 [Chronal Coordinates].txt" />
     <Content Include="Docs\2018\2018-12-05 [Alchemical Reduction].txt" />
     <Content Include="Docs\2018\2018-12-04 [Repose Record].txt" />
     <Content Include="Input\2015\2015-12-01.txt" />
@@ -55,6 +56,7 @@
     <Content Include="Input\2018\2018-12-01.txt" />
     <Content Include="Input\2018\2018-12-02.txt" />
     <Content Include="Input\2018\2018-12-03.txt" />
+    <Content Include="Input\2018\2018-12-06.txt" />
     <Content Include="Input\2018\2018-12-05.txt" />
     <Content Include="Input\2018\2018-12-04.txt" />
     <Content Include="Output\2018\2018-12-01a.txt" />

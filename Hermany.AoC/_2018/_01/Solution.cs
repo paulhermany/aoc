@@ -9,26 +9,25 @@ namespace Hermany.AoC._2018._01
     {
         public string Part1(params string[] input)
         {
-            return input.Select(_ => (_[0] == '-' ? -1 : 1) * Convert.ToInt64(_.Substring(1))).Sum()
-                .ToString();
+            return Array.ConvertAll(input, int.Parse).Sum().ToString();
         }
 
         public string Part2(params string[] input)
         {
-            var changes = input.Select(_ => (_[0] == '-' ? -1 : 1) * Convert.ToInt64(_.Substring(1))).ToArray();
+            var frequencyChanges = Array.ConvertAll(input, int.Parse);
 
-            long freq = 0;
-            var freqs = new HashSet<long>();
+            var currentFrequency = 0;
+            var frequencies = new HashSet<int>();
             var index = 0;
 
-            while (!freqs.Contains(freq))
+            while (!frequencies.Contains(currentFrequency))
             {
-                freqs.Add(freq);
-                freq += changes[index];
-                index = (index + 1) % changes.Length;
+                frequencies.Add(currentFrequency);
+                currentFrequency += frequencyChanges[index];
+                index = (index + 1) % frequencyChanges.Length;
             }
 
-            return freq.ToString();
+            return currentFrequency.ToString();
         }
     }
 }
