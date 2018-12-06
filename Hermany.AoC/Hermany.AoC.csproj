@@ -51,7 +51,7 @@
     <Compile Include="_2018\_03\Solution.cs" />
     <Compile Include="_2018\_04\Solution.cs" />
     <Compile Include="_2018\_05\Solution.cs" />
-    <Compile Include="_2018\_06\Point.cs" />
+    <Compile Include="_2018\_06\Manhattan.cs" />
     <Compile Include="_2018\_06\Solution.cs" />
     <Compile Include="_2018\_07\Solution.cs" />
     <Compile Include="_2018\_08\Solution.cs" />

@@ -6,16 +6,8 @@ using System.Threading.Tasks;
 
 namespace Hermany.AoC._2018._06
 {
-    public class Point
+    public class Manhattan
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public Point(int x, int y)
-        {
-            this.X = x;
-            this.Y = y;
-        }
-       
         public static int ManhattanDistance(ValueTuple<int, int> a, ValueTuple<int, int> b)
             => Math.Abs(a.Item1 - b.Item1) + Math.Abs(a.Item2 - b.Item2);
 

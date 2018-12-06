@@ -39,27 +39,17 @@ namespace Hermany.AoC._2018._06
 
                     var minDistance = (maxX - minX + 1) + (maxY - minY + 1);
 
-                    foreach (var p in Point.ManhattanWalk(new ValueTuple<int, int>(x, y)))
+                    foreach (var p in points)
                     {
-                        var d = Point.ManhattanDistance(p, new ValueTuple<int, int>(x, y));
+                        var d = ManhattanDistance(p.Key, new ValueTuple<int, int>(x, y));
+
+                        if (d > minDistance) continue;
+
+                        if (d == minDistance)
+                            grid[gridX, gridY] = new ValueTuple<int, int>(0, 0);
                         
-                        if (points.ContainsKey(p))
-                        {    
-                            if (d == minDistance)
-                            {
-                                grid[gridX, gridY] = new ValueTuple<int, int>(0, 0);
-                                break;
-                            }
-
-                            if (d < minDistance)
-                            {
-                                grid[gridX, gridY] = new ValueTuple<int, int>(points[p], d);
-                                minDistance = d;
-                            }
-                        }
-
-                        if (d > minDistance)
-                            break;
+                        grid[gridX, gridY] = new ValueTuple<int, int>(p.Value, d);
+                        minDistance = d;
                     }
                 }
             }
@@ -120,11 +110,14 @@ namespace Hermany.AoC._2018._06
             {
                 for (var y = minY; y <= maxY; y++)
                 {
-                    if (points.Sum(_ => Point.ManhattanDistance(new ValueTuple<int, int>(x, y), _.Key)) < 10000) size++;
+                    if (points.Sum(_ => ManhattanDistance(new ValueTuple<int, int>(x, y), _.Key)) < 10000) size++;
                 }
             }
 
             return size.ToString();
         }
+
+       public static int ManhattanDistance(ValueTuple<int, int> a, ValueTuple<int, int> b)
+            => Math.Abs(a.Item1 - b.Item1) + Math.Abs(a.Item2 - b.Item2);
     }
 }
