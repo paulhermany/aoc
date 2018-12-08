@@ -80,4 +80,13 @@ namespace Hermany.AoC._2018._03
             return true;
         }
     }
+
+    public class Claim
+    {
+        public int Id { get; set; }
+        public int Left { get; set; }
+        public int Top { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
+    }
 }
