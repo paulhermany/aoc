@@ -59,6 +59,7 @@
     <Content Include="Input\2018\2018-12-01.txt" />
     <Content Include="Input\2018\2018-12-02.txt" />
     <Content Include="Input\2018\2018-12-03.txt" />
+    <Content Include="Input\2018\2018-12-10.txt" />
     <Content Include="Input\2018\2018-12-09.txt" />
     <Content Include="Input\2018\2018-12-08.txt" />
     <Content Include="Input\2018\2018-12-07.txt" />
@@ -81,6 +82,8 @@
     <Content Include="Output\2018\2018-12-07b.txt" />
     <Content Include="Output\2018\2018-12-08a.txt" />
     <Content Include="Output\2018\2018-12-08b.txt" />
+    <Content Include="Output\2018\2018-12-09a.txt" />
+    <Content Include="Output\2018\2018-12-09b.txt" />
     <Content Include="Output\Summary.txt" />
   </ItemGroup>
   <ItemGroup />
