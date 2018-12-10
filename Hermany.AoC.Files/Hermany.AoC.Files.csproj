@@ -45,6 +45,7 @@
     <Content Include="Docs\2018\2018-12-02 [Inventory Management System].txt" />
     <Content Include="Docs\2018\2018-12-03 [No Matter How You Slice It] - Copy.txt" />
     <Content Include="Docs\2018\2018-12-06 [Chronal Coordinates] - Copy.txt" />
+    <Content Include="Docs\2018\2018-12-09 [Marble Mania].txt" />
     <Content Include="Docs\2018\2018-12-08 [Memory Maneuver].txt" />
     <Content Include="Docs\2018\2018-12-07 [The Sum of Its Parts].txt" />
     <Content Include="Docs\2018\2018-12-05 [Alchemical Reduction].txt" />
@@ -58,6 +59,7 @@
     <Content Include="Input\2018\2018-12-01.txt" />
     <Content Include="Input\2018\2018-12-02.txt" />
     <Content Include="Input\2018\2018-12-03.txt" />
+    <Content Include="Input\2018\2018-12-09.txt" />
     <Content Include="Input\2018\2018-12-08.txt" />
     <Content Include="Input\2018\2018-12-07.txt" />
     <Content Include="Input\2018\2018-12-06.txt" />
@@ -77,6 +79,8 @@
     <Content Include="Output\2018\2018-12-06b.txt" />
     <Content Include="Output\2018\2018-12-07a.txt" />
     <Content Include="Output\2018\2018-12-07b.txt" />
+    <Content Include="Output\2018\2018-12-08a.txt" />
+    <Content Include="Output\2018\2018-12-08b.txt" />
     <Content Include="Output\Summary.txt" />
   </ItemGroup>
   <ItemGroup />
