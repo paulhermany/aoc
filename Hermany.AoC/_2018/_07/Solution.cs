@@ -11,19 +11,7 @@ namespace Hermany.AoC._2018._07
     {
         public string Part1(params string[] input)
         {
-            var regex = new Regex(@"Step ([A-Z]) must be finished before step ([A-Z]) can begin\.", RegexOptions.Compiled);
-
-            var steps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray().ToDictionary(_ => _, _ => new Step(_));
-
-            foreach (var line in input)
-            {
-                var match = regex.Match(line);
-                steps[Convert.ToChar(match.Groups[1].Value)].Dependents.Add(steps[Convert.ToChar(match.Groups[2].Value)]);
-                steps[Convert.ToChar(match.Groups[2].Value)].Dependencies.Add(steps[Convert.ToChar(match.Groups[1].Value)]);
-            }
-
-            var instructions = new List<Step>();
-            instructions.AddRange(steps.Values.Where(_ => _.Dependencies.Count == 0 && _.Dependents.Count != 0));
+            var instructions = GetInstructions(input);
             
             var sb = new StringBuilder();
 
@@ -46,20 +34,7 @@ namespace Hermany.AoC._2018._07
 
         public string Part2(params string[] input)
         {
-            var regex = new Regex(@"Step ([A-Z]) must be finished before step ([A-Z]) can begin\.", RegexOptions.Compiled);
-
-            var steps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray().ToDictionary(_ => _, _ => new Step(_));
-
-            foreach (var line in input)
-            {
-                var match = regex.Match(line);
-                steps[Convert.ToChar(match.Groups[1].Value)].Dependents.Add(steps[Convert.ToChar(match.Groups[2].Value)]);
-                steps[Convert.ToChar(match.Groups[2].Value)].Dependencies.Add(steps[Convert.ToChar(match.Groups[1].Value)]);
-            }
-
-            var instructions = new List<Step>();
-            instructions.AddRange(steps.Values.Where(_ => _.Dependencies.Count == 0 && _.Dependents.Count != 0));
-
+            var instructions = GetInstructions(input);
             
             var activeSteps = new List<Step>();
             var maxActiveSteps = 5;
@@ -104,8 +79,27 @@ namespace Hermany.AoC._2018._07
 
             return (time - 1).ToString();
         }
-    }
+        
+        public List<Step> GetInstructions(string[] input)
+        {
+            var regex = new Regex(@"Step ([A-Z]) must be finished before step ([A-Z]) can begin\.", RegexOptions.Compiled);
 
+            var steps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray().ToDictionary(_ => _, _ => new Step(_));
+
+            foreach (var line in input)
+            {
+                var match = regex.Match(line);
+                steps[Convert.ToChar(match.Groups[1].Value)].Dependents.Add(steps[Convert.ToChar(match.Groups[2].Value)]);
+                steps[Convert.ToChar(match.Groups[2].Value)].Dependencies.Add(steps[Convert.ToChar(match.Groups[1].Value)]);
+            }
+
+            var instructions = new List<Step>();
+            instructions.AddRange(steps.Values.Where(_ => _.Dependencies.Count == 0 && _.Dependents.Count != 0));
+
+            return instructions;
+        }
+    }
+    
     public class Step
     {
         public char Name { get; set; }

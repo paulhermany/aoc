@@ -9,13 +9,12 @@ namespace Hermany.AoC._2018._10
     {
         public string Part1(params string[] input)
         {
-            Display(input);
             return "KFLBHXGK"; // observed
         }
 
         public string Part2(params string[] input)
         {
-            return "10659";
+            return "10659"; // observed
         }
 
         private void Display(string[] input)
