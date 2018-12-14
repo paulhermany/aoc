@@ -47,7 +47,8 @@
     <Content Include="Docs\2018\2018-12-06 [Chronal Coordinates] - Copy.txt" />
     <Content Include="Docs\2018\2018-12-10 [The Stars Align].txt" />
     <Content Include="Docs\2018\2018-12-11 [Chronal Charge].txt" />
-    <Content Include="Docs\2018\2018-12-13 [Mine Cart Madness].txt" />
+    <Content Include="Docs\2018\2018-12-13 [Mine Cart Madness] - Copy.txt" />
+    <Content Include="Docs\2018\2018-12-14 [Chocolate Charts].txt" />
     <Content Include="Docs\2018\2018-12-12 [Subterranean Sustainability].txt" />
     <Content Include="Docs\2018\2018-12-09 [Marble Mania].txt" />
     <Content Include="Docs\2018\2018-12-08 [Memory Maneuver].txt" />
@@ -63,6 +64,7 @@
     <Content Include="Input\2018\2018-12-01.txt" />
     <Content Include="Input\2018\2018-12-02.txt" />
     <Content Include="Input\2018\2018-12-03.txt" />
+    <Content Include="Input\2018\2018-12-14.txt" />
     <Content Include="Input\2018\2018-12-13.txt" />
     <Content Include="Input\2018\2018-12-12.txt" />
     <Content Include="Input\2018\2018-12-11.txt" />
