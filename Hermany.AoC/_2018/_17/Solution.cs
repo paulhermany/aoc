@@ -7,12 +7,12 @@ namespace Hermany.AoC._2018._17
     {
         public string Part1(params string[] input)
         {
-            throw new NotImplementedException();
+            return string.Empty;
         }
 
         public string Part2(params string[] input)
         {
-            throw new NotImplementedException();
+            return string.Empty;
         }
     }
 }
