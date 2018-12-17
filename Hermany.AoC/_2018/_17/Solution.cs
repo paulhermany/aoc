@@ -14,102 +14,26 @@ namespace Hermany.AoC._2018._17
     public class Solution : ISolution
     {
         private const bool Visual = false;
-        private const int Framerate = 30;
+        private const int Framerate = 60;
         private const int WindowWidth = 40;
         private const int WindowHeight = 24;
+
+        private readonly (int, int) _springLocation = (500, 0);
 
         public string Part1(params string[] input)
         {
             var scan = ParseInput(input);
 
-            var minX = scan.Min(_ => _.Key.Item1);
-            var maxX = scan.Max(_ => _.Key.Item1);
             var minY = scan.Min(_ => _.Key.Item2);
             var maxY = scan.Max(_ => _.Key.Item2);
-
-            var stack = new Stack<(int, int)>();
-
-            scan[(500, 0)] = '+';
-            stack.Push((500,0));
             
-            while (stack.Count > 0)
-            {
-                var current = stack.Pop();
+            Flow(scan, _springLocation);
 
-                if (Visual)
-                {
-                    Print(scan, current.Item1 - WindowWidth / 2, (current.Item2 - WindowHeight / 2) > 0 ? (current.Item2 - WindowHeight / 2) : 0, WindowWidth, WindowHeight);
-                    System.Threading.Thread.Sleep(Framerate);
-                }
-
-                if (current.Item2 >= maxY) continue;
-
-                var down = (current.Item1, current.Item2 + 1);
-
-                if (!scan.ContainsKey(down))
-                {
-                    scan[down] = '|';
-                    stack.Push(down);
-                    continue;
-                }
-
-                if (scan[down] == '|')
-                {
-                    var isBasin = IsBasin(scan, down);
-                }
-
-                var up = (current.Item1, current.Item2 - 1);
-                {
-                    if (scan.ContainsKey(up) && scan[up] == '|')
-                        stack.Push(up);
-                }
-                
-                if (scan[down] == '~' || scan[down] == '#')
-                {
-                    var left = (current.Item1 - 1, current.Item2);
-                    if (!scan.ContainsKey(left))
-                    {
-                        scan[left] = '|';
-                        stack.Push(left);
-                    }
-
-                    var right = (current.Item1 + 1, current.Item2);
-                    if (!scan.ContainsKey(right))
-                    {
-                        scan[right] = '|';
-                        stack.Push(right);
-                    }
-                }
-            }
-
+            // count the number of flowing and still water locations within the Y range
             var flowingWater = scan.Where(_ => _.Key.Item2 >= minY && _.Key.Item2 <= maxY).Count(_ => _.Value == '|');
-            var calmWater = scan.Where(_ => _.Key.Item2 >= minY && _.Key.Item2 <= maxY).Count(_ => _.Value == '~');
-            var totalWater = flowingWater + calmWater;
+            var stillWater = scan.Where(_ => _.Key.Item2 >= minY && _.Key.Item2 <= maxY).Count(_ => _.Value == '~');
+            var totalWater = flowingWater + stillWater;
 
-            if (Visual)
-            {
-                Console.Write($"Flowing Water: {flowingWater}, Calm Water: {calmWater}, Total Water: {totalWater}");
-                Console.ReadKey();
-            }
-
-            //minX = scan.Min(_ => _.Key.Item1);
-            //maxX = scan.Max(_ => _.Key.Item1);
-            //minY = scan.Min(_ => _.Key.Item2);
-            //maxY = scan.Max(_ => _.Key.Item2);
-
-            //var sb = new StringBuilder();
-
-            //for (var y = minY; y <= maxY; y++)
-            //{
-            //    for (var x = minX; x <= maxX; x++)
-            //    {
-            //        sb.Append(scan.ContainsKey((x, y)) ? scan[(x, y)] : ' ');
-            //    }
-            //    sb.Append(Environment.NewLine);
-            //}
-
-
-            //39369 too high
             return totalWater.ToString();
         }
 
@@ -117,24 +41,41 @@ namespace Hermany.AoC._2018._17
         {
             var scan = ParseInput(input);
 
-            var minX = scan.Min(_ => _.Key.Item1);
-            var maxX = scan.Max(_ => _.Key.Item1);
             var minY = scan.Min(_ => _.Key.Item2);
+            var maxY = scan.Max(_ => _.Key.Item2);
+
+            Flow(scan, _springLocation);
+
+            // count the number of still water locations within the Y range
+            var stillWater = scan.Where(_ => _.Key.Item2 >= minY && _.Key.Item2 <= maxY).Count(_ => _.Value == '~');
+
+            return stillWater.ToString();
+        }
+
+        public void Flow(IDictionary<(int, int), char> scan, (int, int) springLocation)
+        {
             var maxY = scan.Max(_ => _.Key.Item2);
 
             var stack = new Stack<(int, int)>();
 
-            scan[(500, 0)] = '+';
-            stack.Push((500, 0));
+            scan[springLocation] = '+';
+            stack.Push(springLocation);
 
             while (stack.Count > 0)
             {
                 var current = stack.Pop();
-                
+
+                if (Visual)
+                {
+                    Print(scan, current.Item1 - WindowWidth / 2, current.Item2 - WindowHeight / 2 > 0 ? current.Item2 - WindowHeight / 2 : 0, WindowWidth, WindowHeight);
+                    System.Threading.Thread.Sleep(Framerate);
+                }
+
                 if (current.Item2 >= maxY) continue;
 
                 var down = (current.Item1, current.Item2 + 1);
 
+                // if the next location down from the current location is empty, water flows down
                 if (!scan.ContainsKey(down))
                 {
                     scan[down] = '|';
@@ -142,19 +83,22 @@ namespace Hermany.AoC._2018._17
                     continue;
                 }
 
+                // if the next location down from the current location is flowing water, check for a basin
+                //   the IsBasin method will convert all flowing water to still water if it is a basin
                 if (scan[down] == '|')
-                {
-                    var isBasin = IsBasin(scan, down);
-                }
+                    CheckForBasin(scan, down);
 
+
+                // if the location immediately up from the current location is flowing water, add the current location to the stack
+                //   the location will be checked after the left and right locations are checked
                 var up = (current.Item1, current.Item2 - 1);
-                {
-                    if (scan.ContainsKey(up) && scan[up] == '|')
-                        stack.Push(up);
-                }
+                if (scan.ContainsKey(up) && scan[up] == '|' || scan.ContainsKey(up) && scan[up] == '+')
+                    stack.Push(up);
 
+                // if the location immediately down from the current location is still water or clay...
                 if (scan[down] == '~' || scan[down] == '#')
                 {
+                    // water can flow to the left
                     var left = (current.Item1 - 1, current.Item2);
                     if (!scan.ContainsKey(left))
                     {
@@ -162,6 +106,7 @@ namespace Hermany.AoC._2018._17
                         stack.Push(left);
                     }
 
+                    // water can flow to the right
                     var right = (current.Item1 + 1, current.Item2);
                     if (!scan.ContainsKey(right))
                     {
@@ -170,15 +115,9 @@ namespace Hermany.AoC._2018._17
                     }
                 }
             }
-
-            var flowingWater = scan.Where(_ => _.Key.Item2 >= minY && _.Key.Item2 <= maxY).Count(_ => _.Value == '|');
-            var calmWater = scan.Where(_ => _.Key.Item2 >= minY && _.Key.Item2 <= maxY).Count(_ => _.Value == '~');
-            var totalWater = flowingWater + calmWater;
-
-            return calmWater.ToString();
         }
 
-        public bool IsBasin(IDictionary<(int, int), char> scan, (int, int) start)
+        public bool CheckForBasin(IDictionary<(int, int), char> scan, (int, int) start)
         {
             var x = start.Item1;
             var y = start.Item2;
@@ -264,6 +203,27 @@ namespace Hermany.AoC._2018._17
                 cursorY++;
                 cursorX = 0;
             }
+        }
+
+        public static string PrintFull(IDictionary<(int, int), char> scan)
+        {
+           var minX = scan.Min(_ => _.Key.Item1);
+           var maxX = scan.Max(_ => _.Key.Item1);
+           var minY = scan.Min(_ => _.Key.Item2);
+           var maxY = scan.Max(_ => _.Key.Item2);
+
+            var sb = new StringBuilder();
+
+            for (var y = minY; y <= maxY; y++)
+            {
+                for (var x = minX; x <= maxX; x++)
+                {
+                    sb.Append(scan.ContainsKey((x, y)) ? scan[(x, y)] : ' ');
+                }
+                sb.Append(Environment.NewLine);
+            }
+
+            return sb.ToString();
         }
     }
 }
