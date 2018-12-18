@@ -13,7 +13,7 @@ namespace Hermany.AoC._2018._17
 {
     public class Solution : ISolution
     {
-        private const bool Visual = false;
+        private const bool Visual = true;
         private const int Framerate = 60;
         private const int WindowWidth = 40;
         private const int WindowHeight = 24;

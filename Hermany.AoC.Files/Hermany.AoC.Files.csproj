@@ -48,7 +48,8 @@
     <Content Include="Docs\2018\2018-12-10 [The Stars Align].txt" />
     <Content Include="Docs\2018\2018-12-11 [Chronal Charge].txt" />
     <Content Include="Docs\2018\2018-12-13 [Mine Cart Madness] - Copy.txt" />
-    <Content Include="Docs\2018\2018-12-17 [Reservoir Research].txt" />
+    <Content Include="Docs\2018\2018-12-17 [Reservoir Research] - Copy.txt" />
+    <Content Include="Docs\2018\2018-12-18 [Settlers of The North Pole].txt" />
     <Content Include="Docs\2018\2018-12-16 [Chronal Classification].txt" />
     <Content Include="Docs\2018\2018-12-15 [Beverage Bandits].txt" />
     <Content Include="Docs\2018\2018-12-14 [Chocolate Charts].txt" />
@@ -67,6 +68,7 @@
     <Content Include="Input\2018\2018-12-01.txt" />
     <Content Include="Input\2018\2018-12-02.txt" />
     <Content Include="Input\2018\2018-12-03.txt" />
+    <Content Include="Input\2018\2018-12-18.txt" />
     <Content Include="Input\2018\2018-12-17.txt" />
     <Content Include="Input\2018\2018-12-16.txt" />
     <Content Include="Input\2018\2018-12-15.txt" />
