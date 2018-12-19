@@ -116,17 +116,9 @@ namespace Hermany.AoC._2018._19
             R[1] = 0;
             R[1]++;
             
-            var N = R[4];
+            var N = (int)R[4];
 
-            var factors = new List<int>();
-            for (var i = 1; i <= N; i++)
-            {
-                if(N % i == 0) factors.Add(i);
-            }
-
-            var sum = factors.Sum();
-            
-            return sum.ToString();
+            return Enumerable.Range(1, N).Where(_ => N % _ == 0).Sum().ToString();
         }
 
         public void InitializeInstructions()
