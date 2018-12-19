@@ -10,10 +10,31 @@ namespace Hermany.AoC._2018._15
     {
         public string Part1(params string[] input)
         {
-            return "246176"; //solution not optimized!
+            var map1 = new Dictionary<(int, int), char>();
+
+            for (var y = 0; y < input.Length; y++)
+                for (var x = 0; x < input[0].Length; x++)
+                    map1.Add((x, y), input[y][x]);
+
+ 
+            var path = Node.FindPath(map1, (6, 1), (15, 2),
+                (a, b) => Math.Abs(a.Item1 - b.Item1) + Math.Abs(a.Item2 - b.Item2),
+                (a) => map1.ContainsKey(a) && map1[a] == '.'
+            );
+
+            var curr = path;
+            while (curr != null)
+            {
+                Console.SetCursorPosition(curr.X, curr.Y);
+                Console.Write("_");
+                System.Threading.Thread.Sleep(100);
+                curr = curr.Parent;
+            }
+
+            //return "246176"; //solution not optimized!
 
             var map = Map.ParseMap(input);
-            
+
             var round = 0;
             var numberOfTargets = -1;
 
@@ -24,7 +45,7 @@ namespace Hermany.AoC._2018._15
                 var orderedUnits = map.Units.OrderBy(_ => _.ReadingOrder).ToArray();
                 foreach (var unit in orderedUnits)
                 {
-                  
+
                     if (!unit.IsAlive) continue;
 
                     // Each unit begins its turn by identifying all possible targets (enemy units). If no targets remain, combat ends.
@@ -46,17 +67,27 @@ namespace Hermany.AoC._2018._15
 
                         var targetLocations = new List<Location>();
 
+                        var minScore = -1;
+
                         foreach (var targetSquare in targetSquares)
                         {
-
                             foreach (var adjacentSquare in unit.OccupiedSquare.GetOpenAdjacentSquares())
                             {
-                                var node = FindPath(map,
-                                    new Location {X = adjacentSquare.X, Y = adjacentSquare.Y},
-                                    new Location {X = targetSquare.X, Y = targetSquare.Y});
+                                var distance = ComputeHScore(adjacentSquare.X, adjacentSquare.Y, targetSquare.X, targetSquare.Y);
 
+                                if (distance > minScore)
+                                    continue;
+
+                                var node = FindPath(map,
+                                    new Location { X = adjacentSquare.X, Y = adjacentSquare.Y },
+                                    new Location { X = targetSquare.X, Y = targetSquare.Y });
+                                
                                 if (null != node)
+                                {
                                     targetLocations.Add(node);
+                                    if (node.F <= minScore)
+                                        minScore = node.F;
+                                }
                             }
                         }
 
@@ -69,13 +100,13 @@ namespace Hermany.AoC._2018._15
                         var nextStep = targetLocation.GetAncestor();
 
                         unit.MoveTo(map.Squares[(nextStep.X, nextStep.Y)]);
-                        
+
                     }
 
                     var adjacentTargetUnit = unit.GetAdjacentTargetUnits().OrderBy(_ => _.HP).ThenBy(_ => _.ReadingOrder).FirstOrDefault();
 
                     if (null == adjacentTargetUnit) continue;
-                    
+
                     adjacentTargetUnit.HP -= unit.Attack;
                     if (adjacentTargetUnit.HP < 0) adjacentTargetUnit.HP = 0;
                 }
@@ -97,7 +128,7 @@ namespace Hermany.AoC._2018._15
         {
             return "58128"; //solution not optimized! answer written to console in part 1
         }
-
+        
         // A*
         Location FindPath(Map map, Location start, Location target)
         {
@@ -114,7 +145,7 @@ namespace Hermany.AoC._2018._15
                 current = openList.First(_ => _.F == lowest);
 
                 closedList.Add(current);
-                
+
                 openList.Remove(current);
 
                 if (closedList.FirstOrDefault(_ => _.X == target.X && _.Y == target.Y) != null)
@@ -129,7 +160,7 @@ namespace Hermany.AoC._2018._15
                 {
                     if (closedList.Any(_ => _.X == adjacentLocation.X && _.Y == adjacentLocation.Y))
                         continue;
-                    
+
                     if (openList.FirstOrDefault(_ => _.X == adjacentLocation.X && _.Y == adjacentLocation.Y) == null)
                     {
                         adjacentLocation.G = g;
@@ -151,18 +182,18 @@ namespace Hermany.AoC._2018._15
                 }
             }
 
-            if(null != current && current.X == target.X && current.Y == target.Y)
+            if (null != current && current.X == target.X && current.Y == target.Y)
                 return current;
             return null;
         }
-        
+
         private static int ComputeHScore(int x, int y, int targetX, int targetY)
         {
             return Math.Abs(targetX - x) + Math.Abs(targetY - y);
         }
 
     }
-    
+
     class Location
     {
         public int X;
@@ -171,9 +202,9 @@ namespace Hermany.AoC._2018._15
         public int F;
         public int G;
         public int H;
-        
+
         public Location Parent;
-        
+
         public int ReadingOrder => 32 * Y + X;
 
         public Location GetAncestor()
@@ -257,7 +288,7 @@ namespace Hermany.AoC._2018._15
 
 
         public bool IsOpen => !IsObstacle && (null == Unit || !Unit.IsAlive);
-        
+
         public Square(int x, int y, char c)
         {
             X = x;
