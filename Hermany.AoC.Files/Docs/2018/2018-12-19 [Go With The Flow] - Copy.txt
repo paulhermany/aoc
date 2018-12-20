@@ -42,9 +42,9 @@ What value is left in register 0 when the background process halts?
 
 Your puzzle answer was 1824.
 
-The first half of this puzzle is complete! It provides one gold star: *
-
 --- Part Two ---
 A new background process immediately spins up in its place. It appears identical, but on closer inspection, you notice that this time, register 0 started with the value 1.
 
 What value is left in register 0 when this new background process halts?
+
+Your puzzle answer was 21340800.
