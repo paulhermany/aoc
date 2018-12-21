@@ -50,6 +50,7 @@
     <Content Include="Docs\2018\2018-12-13 [Mine Cart Madness] - Copy.txt" />
     <Content Include="Docs\2018\2018-12-17 [Reservoir Research] - Copy.txt" />
     <Content Include="Docs\2018\2018-12-19 [Go With The Flow] - Copy.txt" />
+    <Content Include="Docs\2018\2018-12-21 [Chronal Conversion].txt" />
     <Content Include="Docs\2018\2018-12-20 [A Regular Map].txt" />
     <Content Include="Docs\2018\2018-12-18 [Settlers of The North Pole].txt" />
     <Content Include="Docs\2018\2018-12-16 [Chronal Classification].txt" />
@@ -70,6 +71,7 @@
     <Content Include="Input\2018\2018-12-01.txt" />
     <Content Include="Input\2018\2018-12-02.txt" />
     <Content Include="Input\2018\2018-12-03.txt" />
+    <Content Include="Input\2018\2018-12-21.txt" />
     <Content Include="Input\2018\2018-12-20.txt" />
     <Content Include="Input\2018\2018-12-19.txt" />
     <Content Include="Input\2018\2018-12-18.txt" />
@@ -126,6 +128,10 @@
     <Content Include="Output\2018\2018-12-18b.txt" />
     <Content Include="Output\2018\2018-12-19a.txt" />
     <Content Include="Output\2018\2018-12-19b.txt" />
+    <Content Include="Output\2018\2018-12-20a.txt" />
+    <Content Include="Output\2018\2018-12-20b.txt" />
+    <Content Include="Output\2018\2018-12-21a.txt" />
+    <Content Include="Output\2018\2018-12-21b.txt" />
     <Content Include="Output\Summary.txt" />
   </ItemGroup>
   <ItemGroup />

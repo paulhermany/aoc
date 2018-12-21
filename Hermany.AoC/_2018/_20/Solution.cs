@@ -74,6 +74,8 @@ namespace Hermany.AoC._2018._20
                 }
             }
 
+            Console.WriteLine(map.Print());
+
             var scores = new Dictionary<(int,int), int>();
 
             var maxScore = 0;
