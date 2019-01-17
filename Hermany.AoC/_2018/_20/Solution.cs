@@ -239,7 +239,7 @@ namespace Hermany.AoC._2018._20
             Console.SetCursorPosition(x - minX, y - minY);
             Console.Write(c);
         }
-
+        
         public Node FindPath(Node start, Node target)
         {
             Node current = null;
