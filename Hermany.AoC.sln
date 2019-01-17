@@ -7,10 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hermany.AoC", "Hermany.AoC\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hermany.AoC.Files", "Hermany.AoC.Files\Hermany.AoC.Files.csproj", "{E2F5DFE5-9CE0-4E8B-9297-4DDD7184CDC2}"
 EndProject
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Hermany.AoC.FSharp", "Hermany.AoC.FSharp\Hermany.AoC.FSharp.fsproj", "{5E338465-FA93-40B4-933A-2BB3A70F31EA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hermany.AoC.Common", "Hermany.AoC.Common\Hermany.AoC.Common.csproj", "{3165BB14-1913-4D8A-9BF6-D7AF66A2A138}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,14 +19,6 @@ Global
 		{FFDCCC00-502C-405C-95B7-C53CDD765856}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2F5DFE5-9CE0-4E8B-9297-4DDD7184CDC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2F5DFE5-9CE0-4E8B-9297-4DDD7184CDC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E338465-FA93-40B4-933A-2BB3A70F31EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E338465-FA93-40B4-933A-2BB3A70F31EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E338465-FA93-40B4-933A-2BB3A70F31EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E338465-FA93-40B4-933A-2BB3A70F31EA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3165BB14-1913-4D8A-9BF6-D7AF66A2A138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3165BB14-1913-4D8A-9BF6-D7AF66A2A138}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3165BB14-1913-4D8A-9BF6-D7AF66A2A138}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3165BB14-1913-4D8A-9BF6-D7AF66A2A138}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
