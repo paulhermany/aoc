@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>Hermany.AoC</RootNamespace>
     <AssemblyName>Hermany.AoC</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -33,6 +33,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="C5, Version=2.5.0.0, Culture=neutral, PublicKeyToken=282361b99ded7e8e, processorArchitecture=MSIL">
       <HintPath>..\packages\C5.2.5.3\lib\net45\C5.dll</HintPath>
@@ -50,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Intcode.cs" />
     <Compile Include="Common\ISolution.cs" />
     <Compile Include="Common\Node.cs" />
     <Compile Include="Program.cs" />
@@ -155,11 +163,24 @@
     <Compile Include="_2015\_03\Solution.cs" />
     <Compile Include="_2015\_02\Solution.cs" />
     <Compile Include="_2015\_01\Solution.cs" />
+    <Compile Include="_2019\_10\Solution.cs" />
+    <Compile Include="_2019\_01\Solution.cs" />
+    <Compile Include="_2019\_02\Solution.cs" />
+    <Compile Include="_2019\_03\Solution.cs" />
+    <Compile Include="_2019\_04\Solution.cs" />
+    <Compile Include="_2019\_05\Solution.cs" />
+    <Compile Include="_2019\_06\Solution.cs" />
+    <Compile Include="_2019\_07\Solution.cs" />
+    <Compile Include="_2019\_08\Solution.cs" />
+    <Compile Include="_2019\_09\Solution.cs" />
+    <Compile Include="_2019\_11\Solution.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="_2019\_01\Solution.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

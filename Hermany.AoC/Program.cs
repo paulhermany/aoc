@@ -8,7 +8,7 @@ namespace Hermany.AoC
 {
     public class Program
     {
-        private const string DefaultDate = @"2018-12-01";
+        private const string DefaultDate = @"2018-12-17";
         private const string DefaultInputDirectory = @"..\..\..\Hermany.Aoc.Files\Input";
         private const string DefaultOutputDirectory = @"..\..\..\Hermany.Aoc.Files\Output";
 

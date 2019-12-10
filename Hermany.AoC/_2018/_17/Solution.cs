@@ -68,6 +68,7 @@ namespace Hermany.AoC._2018._17
                 if (Visual)
                 {
                     Print(scan, current.Item1 - WindowWidth / 2, current.Item2 - WindowHeight / 2 > 0 ? current.Item2 - WindowHeight / 2 : 0, WindowWidth, WindowHeight);
+                    Console.ReadKey();
                     System.Threading.Thread.Sleep(Framerate);
                 }
 
