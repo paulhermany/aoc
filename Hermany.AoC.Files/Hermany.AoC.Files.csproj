@@ -73,7 +73,8 @@
     <Content Include="Docs\2019\2019-12-06 [Universal Orbit Map].txt" />
     <Content Include="Docs\2019\2019-12-04 [Secure Container].txt" />
     <Content Include="Docs\2019\2019-12-03 [Crossed Wires].txt" />
-    <Content Include="Docs\2019\2019-12-12 [].txt" />
+    <Content Include="Docs\2019\2019-12-13 [].txt" />
+    <Content Include="Docs\2019\2019-12-12 [The N-Body Problem].txt" />
     <Content Include="Docs\2019\2019-12-11 [Space Police].txt" />
     <Content Include="Docs\2019\2019-12-10 [Monitoring Station].txt" />
     <Content Include="Docs\2019\2019-12-09 [Sensor Boost].txt" />
@@ -110,6 +111,7 @@
     <Content Include="Input\2018\2018-12-05.txt" />
     <Content Include="Input\2018\2018-12-04.txt" />
     <Content Include="Input\2019\2019-12-01.txt" />
+    <Content Include="Input\2019\2019-12-13.txt" />
     <Content Include="Input\2019\2019-12-12.txt" />
     <Content Include="Input\2019\2019-12-11.txt" />
     <Content Include="Input\2019\2019-12-10.txt" />
@@ -186,6 +188,10 @@
     <Content Include="Output\2019\2019-12-10b.txt" />
     <Content Include="Output\2019\2019-12-11a.txt" />
     <Content Include="Output\2019\2019-12-11b.txt" />
+    <Content Include="Output\2019\2019-12-12a.txt" />
+    <Content Include="Output\2019\2019-12-12b.txt" />
+    <Content Include="Output\2019\2019-12-13a.txt" />
+    <Content Include="Output\2019\2019-12-13b.txt" />
     <Content Include="Output\Summary.txt" />
   </ItemGroup>
   <ItemGroup />

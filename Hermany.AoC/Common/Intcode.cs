@@ -14,6 +14,13 @@ namespace Hermany.AoC.Common
 
         public bool IsHalted { get; private set; }
 
+        public bool IsWaitingInput { get; private set; }
+
+        public long Position
+        {
+            get { return _position; }
+        }
+
         public long Noun
         {
             get => GetMemory(1);
@@ -41,8 +48,15 @@ namespace Hermany.AoC.Common
             Output = new List<long>();
         }
 
+
+        public void Hack(long position, long value)
+        {
+            SetMemory(position, value);
+        }
+
         public void AddInput(params long[] inputs)
         {
+            IsWaitingInput = false;
             foreach (var input in inputs)
                 Input.Enqueue(input);
         }
@@ -54,8 +68,11 @@ namespace Hermany.AoC.Common
             AddInput(inputs);
 
             var outputCount = Output.Count;
-            while (!IsHalted && Output.Count == outputCount)
+            while (!IsHalted && !IsWaitingInput && Output.Count == outputCount)
                 Step();
+
+            if (IsHalted)
+                return null;
 
             return Output.LastOrDefault();
         }
@@ -66,7 +83,7 @@ namespace Hermany.AoC.Common
 
             AddInput(inputs);
 
-            while (!IsHalted)
+            while (!IsHalted && !IsWaitingInput)
                 Step();
 
             return Output.LastOrDefault();
@@ -77,6 +94,8 @@ namespace Hermany.AoC.Common
             var currentValue = GetMemory(_position);
             _opcode = currentValue % 100;
             _modes = (currentValue / 100).ToString().PadLeft(3, '0').Reverse().ToArray();
+
+            IsWaitingInput = false;
 
             switch (_opcode)
             {
@@ -92,6 +111,11 @@ namespace Hermany.AoC.Common
                     _position += 4;
                     break;
                 case 3:
+                    if (Input.Count == 0)
+                    {
+                        IsWaitingInput = true;
+                        return;
+                    }
                     SetParameterValue(1, Input.Dequeue());
                     _position += 2;
                     break;

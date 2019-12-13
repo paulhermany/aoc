@@ -31,11 +31,13 @@ namespace Hermany.AoC._2019._11
             
             while (!robot.IsHalted)
             {
-
                 if (!grid.ContainsKey((x, y)))
                     grid.Add((x, y), 0);
 
                 grid[(x, y)] = robot.NextOutput(grid[(x, y)]).GetValueOrDefault();
+
+                if (robot.IsHalted)
+                    grid.Remove((x, y));
 
                 var direction = robot.NextOutput().GetValueOrDefault() == 0 ? 1 : -1;
 
